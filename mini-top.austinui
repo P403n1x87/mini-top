@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<aui:MiniTop xmlns:aui="http://austin.p403n1x87.com/ui" name="tui">
+  <aui:Window name="main">
+    <aui:Box name="main_box" flow="v">
+      <aui:Box name="overview_box" flow="h">
+        <aui:Label name="nprocs_label"
+          text="No. of procs."
+          width="16" />
+
+        <aui:Label name="nprocs"
+          align="center"
+          width="8"
+          bold="true" />
+
+        <aui:Label name="cpu_label"
+          text="Total %CPU"
+          width="16" />
+
+        <aui:Label name="cpu"
+          align="right"
+          width="6"
+          bold="true" />
+
+      </aui:Box>
+
+      <aui:Box name="table_header" flow="h">
+        <aui:Label name="own"
+          text="PID"
+          align="right"
+          width="8"
+          bold="true"
+          reverse="true" />
+        <aui:Label name="proc_cpu"
+          text="%CPU"
+          align="center"
+          width="10"
+          bold="true"
+          reverse="true" />
+        <aui:Label name="cmdline"
+          text="COMMAND LINE"
+          bold="true"
+          reverse="true" />
+      </aui:Box>
+
+      <aui:ScrollView name="proc_view">
+        <aui:Table name="table" columns="3" />
+      </aui:ScrollView>
+
+      <aui:Label name="footer"
+        text="Press Q to exit."
+        align="center"
+        bold="true" />
+    </aui:Box>
+  </aui:Window>
+
+  <!-- Signal mappings -->
+
+  <aui:signal key="q"         handler="on_quit"   />
+  <aui:signal key="KEY_UP"    handler="on_up"     />
+  <aui:signal key="KEY_DOWN"  handler="on_down"   />
+  <aui:signal key="KEY_PPAGE" handler="on_pgup"   />
+  <aui:signal key="KEY_NPAGE" handler="on_pgdown" />
+
+  <!-- Palette -->
+
+  <aui:palette>
+    <aui:color name="pid"  fg="3"   />
+    <aui:color name="opt"  fg="4"   />
+    <aui:color name="cmd"  fg="10"  />
+    <aui:color name="args" fg="246" />
+  </aui:palette>
+
+</aui:MiniTop>
